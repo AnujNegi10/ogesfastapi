@@ -6,7 +6,7 @@ from .database import engine,get_db
 from sqlalchemy.orm import Session
 from .routers import blog,authentication
 
-# from passlib.context import CryptContext
+
 app = FastAPI()
 
 models.Base.metadata.create_all(engine)
