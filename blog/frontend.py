@@ -4,7 +4,7 @@ import time
 import re  # Import regular expressions module
 
 # FastAPI base URL
-FASTAPI_URL = "http://127.0.0.1:8000"
+FASTAPI_URL = "https://ogesfastapi-1.onrender.com"
 
 # Initialize session state for login status and token
 if "is_logged_in" not in st.session_state:

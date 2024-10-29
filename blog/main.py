@@ -5,6 +5,7 @@ from .hashing import Hash
 from .database import engine,get_db
 from sqlalchemy.orm import Session
 from .routers import blog,authentication
+
 # from passlib.context import CryptContext
 app = FastAPI()
 
@@ -89,3 +90,4 @@ def get_user(id:int , db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"user not found with id {id}")
     
     return user
+
