@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: fastapi
+    env: docker
+    docker:
+      dockerfilePath: Dockerfile
+      buildCommand: "pip install -r requirements.txt"
+      runCommand: "uvicorn blog.main:app --host 0.0.0.0 --port 8000"
+    plan: free
+    region: india  # Choose a region near you
+
+  - type: web
+    name: streamlit
+    env: docker
+    docker:
+      dockerfilePath: Dockerfile.streamlit
+      buildCommand: "pip install -r requirements.txt"
+      runCommand: "streamlit run frontend.py --server.port=8501 --server.address=0.0.0.0"
+    plan: free
+    region: india  # Choose a region near you
