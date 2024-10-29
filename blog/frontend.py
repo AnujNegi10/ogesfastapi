@@ -13,7 +13,7 @@ if "is_logged_in" not in st.session_state:
     st.session_state.token = ""
 
 # Add an image at the top of the app with a specific width
-st.image(r"C:\Users\negia\Downloads\logo.png", width=200, use_column_width=False)  # Set width to 200 pixels
+# st.image(r"C:\Users\negia\Downloads\logo.png", width=200, use_column_width=False)  # Set width to 200 pixels
 
 # Function to validate password
 def validate_password(password):
