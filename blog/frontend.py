@@ -20,6 +20,11 @@ def validate_password(password):
         return False
     return True
 
+# Function to validate email
+def validate_email(email):
+    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    return re.match(email_regex, email)
+
 # Function to register a new user
 def register_user():
     st.title("Oges Sign Up Page")
@@ -50,6 +55,8 @@ def login_user():
     if st.button("Login"):
         if not username.strip() or not password.strip():
             st.warning("Please enter both username and password to log in.")
+        elif not validate_email(username):
+            st.warning("Please enter a valid email address.")
         else:
             payload = {"username": username, "password": password}
             try:
@@ -70,8 +77,7 @@ def login_user():
 # Function to display welcome page after login
 def welcome_page():
     st.title(f"Welcome, {st.session_state.username}!")
-    st.markdown("""
-    At OGES, we have a unique combination of Oil & Gas domain experts, software engineers, 
+    st.markdown(""" At OGES, we have a unique combination of Oil & Gas domain experts, software engineers, 
     and recruitment experts. This combination has helped us to develop multiple Digital Solutions 
     for the Oil & Gas industry.
     """)
